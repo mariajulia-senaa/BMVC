@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar - Café Dojo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="pagina-login">
+  <header class="topo">
+    <span class="marca">Café Dojo</span>
+  </header>
+
+  <div class="login-centro">
+    <section class="papel login-papel">
+      <h2>Entrar</h2>
+      <p class="sub">Acesso ao balcão</p>
+
+      <form id="form-login" autocomplete="off">
+        <label>Usuário
+          <input id="usuario" required autofocus>
+        </label>
+        <label>Senha
+          <input id="senha" type="password" required>
+        </label>
+        <button type="submit" class="btn">Entrar</button>
+        <p id="erro" class="erro" role="alert"></p>
+      </form>
+
+      <p class="dica">Demonstração: admin / 1234</p>
+    </section>
+  </div>
+
+  <footer>Servido por NGINX em Docker</footer>
+
+  <script src="js/auth.js"></script>
+  <script>
+    if (Auth.usuarioAtual()) location.replace("index.html");
+
+    document.getElementById("form-login").addEventListener("submit", e => {
+      e.preventDefault();
+      const ok = Auth.entrar(
+        document.getElementById("usuario").value,
+        document.getElementById("senha").value
+      );
+      if (ok) location.replace("index.html");
+      else {
+        document.getElementById("erro").textContent = "Usuário ou senha inválidos.";
+        document.getElementById("senha").value = "";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Salve a foto da cafeteria nesta pasta com o nome exato:
+
+    cafeteria.jpg
+
+Dica: use uma foto horizontal, de pelo menos 1600 px de largura.
+Depois rode:  docker compose up --build

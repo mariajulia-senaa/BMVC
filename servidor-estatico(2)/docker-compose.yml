@@ -1,0 +1,6 @@
+services:
+  web:
+    build: .
+    container_name: cafe-dojo
+    ports:
+      - "8080:80"

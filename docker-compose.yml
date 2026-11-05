@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+bmvc-app:
+build: .
+container_name: bmvc_python_app
+volumes:
+- .:/app  

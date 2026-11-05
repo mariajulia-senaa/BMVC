@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Dojo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <span class="marca">Café Dojo</span>
+    <div class="sessao">
+      <span>Atendente: <strong id="nome-usuario"></strong></span>
+      <button id="sair" class="btn-texto">Sair</button>
+    </div>
+  </header>
+
+  <div class="capa">
+    <h1>Cardápio</h1>
+    <p>Cafés, salgados e doces</p>
+  </div>
+
+  <main>
+    <div id="aviso" role="status"></div>
+
+    <section class="papel">
+      <h2>Para pedir</h2>
+      <div id="cardapio"></div>
+    </section>
+
+    <section class="papel">
+      <h2>Comanda</h2>
+      <ul id="pedido"></ul>
+      <div class="total-linha"><span>Total</span><strong id="total">R$ 0,00</strong></div>
+      <button id="limpar" class="btn-texto">Limpar comanda</button>
+    </section>
+
+    <section class="papel larga">
+      <h2>Gerenciar cardápio</h2>
+
+      <form id="form-item" autocomplete="off">
+        <input type="hidden" id="item-id">
+        <div class="form-grade">
+          <label>Nome
+            <input id="item-nome" maxlength="40" required>
+          </label>
+          <label>Preço (R$)
+            <input id="item-preco" inputmode="decimal" placeholder="0,00" required>
+          </label>
+          <label>Categoria
+            <select id="item-categoria">
+              <option>Bebida</option>
+              <option>Comida</option>
+              <option>Doce</option>
+            </select>
+          </label>
+        </div>
+        <div class="acoes">
+          <button type="submit" id="btn-salvar" class="btn">Cadastrar item</button>
+          <button type="button" id="btn-cancelar" class="btn contorno" hidden>Cancelar edição</button>
+        </div>
+      </form>
+
+      <div class="tabela-wrap">
+        <table>
+          <thead>
+            <tr><th>Nº</th><th>Nome</th><th>Categoria</th><th>Preço</th><th></th></tr>
+          </thead>
+          <tbody id="tabela-itens"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>Servido por NGINX em Docker</footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
